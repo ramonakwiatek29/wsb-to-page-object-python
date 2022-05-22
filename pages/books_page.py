@@ -2,8 +2,7 @@ from .base_page import BasePage
 from config import BOOKS_URL
 from .locators import BOOKS_LOCATORS
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+
 
 
 class BooksPage(BasePage):
