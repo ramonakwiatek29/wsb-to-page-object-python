@@ -105,6 +105,18 @@ CART_LOCATORS = {
         'by': By.CSS_SELECTOR,
         'value': '.plus'
     },
+    'item_in_cart': {
+        'by': By.CSS_SELECTOR,
+        'value': '.productcart-info > a:nth-child(1)'
+    },
+    'price_of_one_item':{
+        'by': By.CSS_SELECTOR,
+        'value': '.price > strong:nth-child(2)'
+    },
+    'cart_value':{
+        'by': By.CSS_SELECTOR,
+        'value': '.value-items > strong:nth-child(1)'
+    },
 }
 BOOKS_LOCATORS = {
     'book_price': {
@@ -149,4 +161,3 @@ BOOKS_LOCATORS = {
     }
 
 }
-
