@@ -15,6 +15,7 @@ class BasePage:
 
     def find_element(self, locator, wait=10):
         element = WebDriverWait(self.driver, wait).until(ec.presence_of_element_located((locator['by'], locator['value'])))
+        return element
 
     def find_elements(self, locator):
         elements = self.driver.find_elements(by=locator['by'], value=locator['value'])
