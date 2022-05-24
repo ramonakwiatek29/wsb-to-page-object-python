@@ -69,7 +69,7 @@ ITEM_LOCATORS = {
     },
     'return_btn': {
         'by': By.CSS_SELECTOR,
-        'value': 'return_button'
+        'value': '.return-button'
     },
     'plus_btn': {
         'by': By.CSS_SELECTOR,
@@ -78,10 +78,6 @@ ITEM_LOCATORS = {
     'add_few_product_btn': {
         'by': By.CSS_SELECTOR,
         'value': "#addproductamount"
-    },
-    'available_number': {
-        'by': By.CSS_SELECTOR,
-        'value': ".goshop-modal > section:nth-child(2) > ul:nth-child(4) > li:nth-child(1) > strong:nth-child(2)"
     },
 }
 CART_LOCATORS = {
@@ -114,9 +110,14 @@ CART_LOCATORS = {
         'value': '.price > strong:nth-child(2)'
     },
     'cart_value':{
-        'by': By.CSS_SELECTOR,
-        'value': '.value-items > strong:nth-child(1)'
+        'by': By.XPATH,
+        'value': 'html/body/div[1]/div[2]/section/div[2]/form/section[1]/table/tbody/tr/td[3]/div/input'
     },
+    'cart':{
+        'by': By.CSS_SELECTOR,
+        'value': '#cart-box'
+    },
+
 }
 BOOKS_LOCATORS = {
     'book_price': {

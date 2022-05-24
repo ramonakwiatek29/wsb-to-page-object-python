@@ -1,29 +1,37 @@
-from .base_page import BasePage
+from pages.base_page import BasePage
 from config import CART_PAGE_URL
-from .locators import CART_LOCATORS
+from pages.locators import CART_LOCATORS
+from pages.item_page import ItemPage
+from selenium.webdriver.common.by import By
 
 
-class ItemPage(BasePage):
+class CartPage(BasePage):
     _locators = CART_LOCATORS
     _url = CART_PAGE_URL
 
     def check_that_cart_is_empty(self):
-        self.get_message(['empty_cart_msg'])
+        self.click_btn(self._locators['cart'])
+        empty_cart = self.find_element(self._locators['empty_cart_msg']).text
+        return empty_cart
 
     def check_that_item_is_in_cart(self):
-        self.get_message(['item_in_cart'])
+        item = self.find_element(self._locators['item_in_cart']).text
+        return item
 
     def plus_one_item(self):
-        self.click_btn(['plus_btn_2'])
+        self.click_btn(self._locators['plus_btn_2'])
 
     def remove_item(self):
-        self.click_btn(['remove_btn'])
+        self.click_btn(self._locators['remove_btn'])
 
     def clear_cart(self):
-        self.click_btn(['clear_cart_btn'])
+        self.click_btn(self._locators['clear_cart_btn'])
 
     def check_how_many_items_is_in_cart(self):
-        item_price = self.get_message(['price_of_one_item'])
-        cart_value = self.get_message(['cart_value'])
-        print(cart_value / item_price)
+        element = self.find_element(self._locators['cart_value'])
+        items = element.get_attribute('value')
+        return items
 
+    def empty_cart(self):
+        empty_cart = self.find_element(self._locators['empty_cart_msg']).text
+        return empty_cart
