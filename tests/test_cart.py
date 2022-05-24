@@ -54,6 +54,15 @@ class TestCartPage(TestBase):
         over = self.cart.check_how_many_items_is_in_cart()
         assert over == available
 
+    def test_recalculate(self):
+        self.item.add_item_to_cart()
+        self.cart.recalculate_cart()
+        assert self.cart.check_how_many_items_is_in_cart() == '5'
+
+    def test_back_to_shopping(self):
+        self.item.add_item_to_cart()
+        self.cart.back_to_shopping()
+        assert self.cart.back_url() == 'WITAJ W SKLEPIE\nDemo GOSHOP'
 
 
 

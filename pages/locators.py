@@ -105,19 +105,34 @@ CART_LOCATORS = {
         'by': By.CSS_SELECTOR,
         'value': '.productcart-info > a:nth-child(1)'
     },
-    'price_of_one_item':{
+    'price_of_one_item': {
         'by': By.CSS_SELECTOR,
         'value': '.price > strong:nth-child(2)'
     },
-    'cart_value':{
+    'value': {
+        'by': By.CSS_SELECTOR,
+        'value': '.value-items > strong:nth-child(1)'
+    },
+    'cart_value': {
         'by': By.XPATH,
         'value': 'html/body/div[1]/div[2]/section/div[2]/form/section[1]/table/tbody/tr/td[3]/div/input'
     },
-    'cart':{
+    'cart': {
         'by': By.CSS_SELECTOR,
         'value': '#cart-box'
     },
-
+    'count': {
+        'by': By.CSS_SELECTOR,
+        'value': '.recalculate-all'
+    },
+    'back_to_shopping': {
+        'by': By.CSS_SELECTOR,
+        'value': '.cart-back-link'
+    },
+    'back_url': {
+        'by': By.CSS_SELECTOR,
+        'value': '.main-greeting-headline'
+    },
 }
 BOOKS_LOCATORS = {
     'book_price': {
