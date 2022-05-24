@@ -35,3 +35,16 @@ class CartPage(BasePage):
     def empty_cart(self):
         empty_cart = self.find_element(self._locators['empty_cart_msg']).text
         return empty_cart
+
+    def recalculate_cart(self):
+        self.clear(self._locators['cart_value'])
+        self.fill(self._locators['cart_value'],'5')
+        self.click_btn(self._locators['count'])
+
+    def back_to_shopping(self):
+        self.click_btn(self._locators['back_to_shopping'])
+
+    def back_url(self):
+        element = self.find_element(self._locators['back_url'])
+        start = element.text
+        return start
