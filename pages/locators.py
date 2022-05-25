@@ -133,6 +133,10 @@ CART_LOCATORS = {
         'by': By.CSS_SELECTOR,
         'value': '.main-greeting-headline'
     },
+    'minus': {
+        'by': By.CSS_SELECTOR,
+        'value': '.minus'
+    },
 }
 BOOKS_LOCATORS = {
     'book_price': {

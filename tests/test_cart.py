@@ -3,6 +3,7 @@ from tests.base_test import TestBase
 from pages.cart_page import CartPage
 from pages.item_page import ItemPage
 
+
 class TestCartPage(TestBase):
 
     @pytest.fixture(autouse=True)
@@ -23,6 +24,12 @@ class TestCartPage(TestBase):
         self.item.add_item_to_cart()
         self.cart.remove_item()
         assert self.cart.empty_cart() == 'Twój koszyk jest pusty'
+
+    def test_minus_one_item(self):
+            self.item.add_two_item_to_cart()
+            self.cart.minus_one_item()
+            element = self.cart.check_how_many_items_is_in_cart()
+            assert element == '1'
 
     def test_clear_cart(self):
         self.item.add_item_to_cart()
@@ -63,8 +70,3 @@ class TestCartPage(TestBase):
         self.item.add_item_to_cart()
         self.cart.back_to_shopping()
         assert self.cart.back_url() == 'WITAJ W SKLEPIE\nDemo GOSHOP'
-
-
-
-
-
