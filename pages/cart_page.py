@@ -38,7 +38,7 @@ class CartPage(BasePage):
 
     def recalculate_cart(self):
         self.clear(self._locators['cart_value'])
-        self.fill(self._locators['cart_value'],'5')
+        self.fill(self._locators['cart_value'], '5')
         self.click_btn(self._locators['count'])
 
     def back_to_shopping(self):
@@ -48,3 +48,6 @@ class CartPage(BasePage):
         element = self.find_element(self._locators['back_url'])
         start = element.text
         return start
+
+    def minus_one_item(self):
+        self.click_btn(self._locators['minus'])
