@@ -12,12 +12,15 @@ class RegistrationPage(BasePage):
         super().__init__(driver)
         self.go_to(self._url)
 
-    def _with(self, data=False):
+    def _with(self, data=None):
         """
         Fills in form with given data. By default, empty form will be submitted.
 
         :param data: (dict) This argument, if given, should be a dictionary mapping field names to test value.
         """
+        if data is None:
+            data = {}
+
         if data:
             fields = data.keys()
             for field in fields:
@@ -32,7 +35,7 @@ class RegistrationPage(BasePage):
         # Submit registration form
         self.click_btn(self._locators['submit_btn'])
 
-    def display_error_message(self, field):
+    def check_error_message_for_filed(self, field):
         """
         Return error message related to form filed if present.
         :param field: (str) input field name
@@ -41,7 +44,7 @@ class RegistrationPage(BasePage):
         """
         return self.get_message(self._form[field]['error_msg'])
 
-    def count_error_messages(self):
+    def check_how_many_error_messages_are_displayed(self):
         # Return numbers of error messages
         errors = self.find_elements(self._locators['error_msgs'])
         return len(errors)
