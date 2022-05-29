@@ -1,3 +1,7 @@
+# Introduction
+
+Automatic tests of sklepdemo.pl using  Selenium and Page Object Model.
+
 # Prerequisites
 
 - Git, Terminal (e.g. cmder),
