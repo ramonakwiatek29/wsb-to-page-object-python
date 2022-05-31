@@ -1,6 +1,6 @@
-from .base_page import BasePage
+from pages.base_page import BasePage
 from config import LOGIN_URL
-from .locators import LOGIN_LOCATORS
+from pages.login_page.selectors import LOGIN_LOCATORS
 
 
 class LoginPage(BasePage):
