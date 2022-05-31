@@ -1,7 +1,7 @@
 import pytest
 from .base_test import TestBase
-from .messages import REGISTRATION_MESSAGES
-from pages.registration_page import RegistrationPage
+from pages.registration_page.messages import REGISTRATION_MESSAGES
+from pages.registration_page.registration_page import RegistrationPage
 
 
 class TestRegistrationPage(TestBase):

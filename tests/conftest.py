@@ -12,5 +12,3 @@ def browser_driver(request):
     driver.maximize_window()
     yield
     driver.close()
-
-
