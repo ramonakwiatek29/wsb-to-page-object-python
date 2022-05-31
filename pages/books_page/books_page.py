@@ -1,6 +1,6 @@
-from .base_page import BasePage
+from pages.base_page import BasePage
 from config import BOOKS_URL
-from .locators import BOOKS_LOCATORS
+from .selectors import BOOKS_LOCATORS
 from selenium.webdriver.common.by import By
 
 
@@ -43,24 +43,24 @@ class BooksPage(BasePage):
         self.click_btn(self._locators['sorter_button'])
         self.click_btn(self._locators['name_asc'])
 
-    def books_price(self):
+    def get_books_prices(self):
         prices = self.find_elements(self._locators['book_price'])
-        list =[]
+        price_list = []
         for price in prices:
             discounted = price.find_element(By.TAG_NAME, "b")
-            list.append(discounted.text)
+            price_list.append(discounted.text)
         new_list = []
-        for i in list:
+        for i in price_list:
             x = i.replace(",", ".")
             new_list.append(float(x))
         return new_list
 
-    def books_title(self):
+    def get_books_titles(self):
         titles = self.find_elements(self._locators['book_title'])
-        list = []
+        price_list = []
         for title in titles:
-            list.append(title.text)
-        return list
+            price_list.append(title.text)
+        return price_list
 
 
 
