@@ -1,7 +1,7 @@
 import pytest
 from .base_test import TestBase
-from .messages import LOGIN_MESSAGES
-from pages.login_page import LoginPage
+from pages.login_page.messages import LOGIN_MESSAGES
+from pages.login_page.login_page import LoginPage
 
 
 class TestLoginPage(TestBase):

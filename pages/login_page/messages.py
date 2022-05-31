@@ -1,4 +1,3 @@
-
 LOGIN_MESSAGES = {
         'error_msgs': {
             'email': 'Podaj prawidłowy email',
