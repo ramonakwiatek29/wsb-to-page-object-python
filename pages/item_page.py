@@ -35,3 +35,5 @@ class ItemPage(BasePage):
         self.fill(self._locators['add_few_product_btn'], '999')
         self.click_btn(self._locators['add_to_cart_btn'])
 
+    def to_cart(self):
+        self.click_btn(self._locators['go_to_cart_btn'])

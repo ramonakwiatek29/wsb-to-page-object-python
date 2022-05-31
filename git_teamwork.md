@@ -27,7 +27,7 @@ Issue id can be found in issues/boards in Gitlab
 
 <img src="https://about.gitlab.com/images/blogimages/connect-milestone.png" alt="MarineGEO circle logo" style="height: 200px; width:500px;"/>
 
-2. Pushing changes to GitHub
+2. Pushing changes to Gitlab
 
     When you are ready to add your code:
 ```commandline

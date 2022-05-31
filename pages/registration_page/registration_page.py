@@ -1,6 +1,6 @@
-from .base_page import BasePage
+from pages.base_page import BasePage
 from config import REGISTRATION_URL
-from .locators import REGISTRATION_LOCATORS
+from .selectors import REGISTRATION_LOCATORS
 
 
 class RegistrationPage(BasePage):
