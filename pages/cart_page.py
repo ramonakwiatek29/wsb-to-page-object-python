@@ -9,7 +9,7 @@ class CartPage(BasePage):
     _locators = CART_LOCATORS
     _url = CART_PAGE_URL
 
-    def check_that_cart_is_empty(self):
+    def go_to_empty_cart(self):
         self.click_btn(self._locators['cart'])
         empty_cart = self.find_element(self._locators['empty_cart_msg']).text
         return empty_cart
@@ -32,14 +32,16 @@ class CartPage(BasePage):
         items = element.get_attribute('value')
         return items
 
-    def empty_cart(self):
+    def check_that_cart_is_empty(self):
         empty_cart = self.find_element(self._locators['empty_cart_msg']).text
         return empty_cart
 
     def recalculate_cart(self):
+        self.click_btn(self._locators['count'])
+
+    def change_the_number_of_items_in_cart_to_5(self):
         self.clear(self._locators['cart_value'])
         self.fill(self._locators['cart_value'], '5')
-        self.click_btn(self._locators['count'])
 
     def back_to_shopping(self):
         self.click_btn(self._locators['back_to_shopping'])
