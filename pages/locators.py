@@ -115,11 +115,11 @@ CART_LOCATORS = {
     },
     'cart_value': {
         'by': By.XPATH,
-        'value': 'html/body/div[1]/div[2]/section/div[2]/form/section[1]/table/tbody/tr/td[3]/div/input'
+        'value': "//input[@type='tel']"
     },
     'cart': {
         'by': By.CSS_SELECTOR,
-        'value': '#cart-box'
+        'value': '#cart-box > span:nth-child(1)'
     },
     'count': {
         'by': By.CSS_SELECTOR,

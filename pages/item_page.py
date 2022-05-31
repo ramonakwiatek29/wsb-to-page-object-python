@@ -35,11 +35,3 @@ class ItemPage(BasePage):
         self.fill(self._locators['add_few_product_btn'], '999')
         self.click_btn(self._locators['add_to_cart_btn'])
 
-    # def check_availability(self):
-    #     # self.get_message(self._locators['available_number'])
-    #     element = self.find_element(self._locators['available_number'])
-    #     items = element.get_attribute('class')
-    #     return items
-
-    def to_cart(self):
-        self.click_btn(self._locators['go_to_cart_btn'])

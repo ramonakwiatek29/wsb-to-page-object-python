@@ -13,8 +13,8 @@ class TestCartPage(TestBase):
         yield
         self.driver.delete_all_cookies()
 
-    def test_empty_cart(self):
-        assert self.cart.check_that_cart_is_empty() == 'Twój koszyk jest pusty'
+    def test_that_cart_is_empty(self):
+        assert self.cart.go_to_empty_cart() == 'Twój koszyk jest pusty'
 
     def test_item_is_in_cart(self):
         self.item.add_item_to_cart()
@@ -23,7 +23,7 @@ class TestCartPage(TestBase):
     def test_remove_item(self):
         self.item.add_item_to_cart()
         self.cart.remove_item()
-        assert self.cart.empty_cart() == 'Twój koszyk jest pusty'
+        assert self.cart.check_that_cart_is_empty() == 'Twój koszyk jest pusty'
 
     def test_minus_one_item(self):
             self.item.add_two_item_to_cart()
@@ -34,7 +34,7 @@ class TestCartPage(TestBase):
     def test_clear_cart(self):
         self.item.add_item_to_cart()
         self.cart.clear_cart()
-        assert self.cart.empty_cart() == 'Twój koszyk jest pusty'
+        assert self.cart.check_that_cart_is_empty() == 'Twój koszyk jest pusty'
 
     def test_add_same_item(self):
         self.item.add_again_the_same_item()
@@ -63,6 +63,7 @@ class TestCartPage(TestBase):
 
     def test_recalculate(self):
         self.item.add_item_to_cart()
+        self.cart.change_the_number_of_items_in_cart_to_5()
         self.cart.recalculate_cart()
         assert self.cart.check_how_many_items_is_in_cart() == '5'
 
