@@ -1,8 +1,6 @@
 from pages.base_page import BasePage
 from config import CART_PAGE_URL
-from pages.locators import CART_LOCATORS
-from pages.item_page import ItemPage
-from selenium.webdriver.common.by import By
+from pages.cart_page.selectors import CART_LOCATORS
 
 
 class CartPage(BasePage):
@@ -27,7 +25,7 @@ class CartPage(BasePage):
     def clear_cart(self):
         self.click_btn(self._locators['clear_cart_btn'])
 
-    def check_how_many_items_is_in_cart(self):
+    def check_how_many_items_are_in_cart(self):
         element = self.find_element(self._locators['cart_value'])
         items = element.get_attribute('value')
         return items
