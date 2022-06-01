@@ -5,7 +5,6 @@ REGISTRATION_LOCATORS = {
         'email': {
             'by': By.ID,
             'value': 'b-email',
-            'type': 'input_text',
             'error_msg': {
                 'by': By.CSS_SELECTOR,
                 'value': 'label[for="b-email"] + div.form-hint'
@@ -14,7 +13,6 @@ REGISTRATION_LOCATORS = {
         'password': {
             'by': By.ID,
             'value': 'b-password',
-            'type': 'input_text',
             'error_msg': {
                 'by': By.CSS_SELECTOR,
                 'value': 'label[for="b-password"] + div.form-hint'
@@ -23,7 +21,6 @@ REGISTRATION_LOCATORS = {
         'rpassword': {
             'by': By.ID,
             'value': 'b-rpassword',
-            'type': 'input_text',
             'error_msg': {
                 'by': By.CSS_SELECTOR,
                 'value': 'label[for="b-rpassword"] + div.form-hint'
@@ -32,7 +29,6 @@ REGISTRATION_LOCATORS = {
         'newsletter': {
             'by': By.ID,
             'value': 'check-nl-register',
-            'type': 'checkbox',
             'error_msg': {
                 'by': By.CSS_SELECTOR,
                 'value': 'label[for="b-check-nl-register"] + div.form-hint'
@@ -42,7 +38,6 @@ REGISTRATION_LOCATORS = {
         'terms_and_conditions': {
             'by': By.ID,
             'value': 'check-regshop',
-            'type': 'checkbox',
             'error_msg': {
                 'by': By.CSS_SELECTOR,
                 'value': 'label[for="check-regshop"] + div.form-hint'
@@ -57,4 +52,12 @@ REGISTRATION_LOCATORS = {
         'by': By.CSS_SELECTOR,
         'value': 'form  div.form-hint'
     },
+    'registration_fail_msg': {
+        'by': By.ID,
+        'value': 'overallValidation'
+    },
+    'registration_success_msg': {
+        'by': By.CSS_SELECTOR,
+        'value': 'div.infobox-message'
+    }
 }

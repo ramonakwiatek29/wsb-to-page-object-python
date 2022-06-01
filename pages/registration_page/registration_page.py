@@ -12,26 +12,15 @@ class RegistrationPage(BasePage):
         super().__init__(driver)
         self.go_to(self._url)
 
-    def _with(self, data=None):
-        """
-        Fills in form with given data. By default, empty form will be submitted.
+    def register_with(self, email="", password="", rpassword="", newsletter=False, terms_and_conditions=False):
+        self.fill(self._form['email'], email)
+        self.fill(self._form['password'], password)
+        self.fill(self._form['rpassword'], rpassword)
+        self.click_checkbox(self._form['newsletter'], newsletter)
+        self.click_checkbox(self._form['terms_and_conditions'], terms_and_conditions)
+        self.click_submit_btn()
 
-        :param data: (dict) This argument, if given, should be a dictionary mapping field names to test value.
-        """
-        if data is None:
-            data = {}
-
-        if data:
-            fields = data.keys()
-            for field in fields:
-                locator = self._form[field]
-                if locator['type'] == 'input_text':
-                    self.fill(locator, data[field])
-                elif locator['type'] == 'checkbox':
-                    self.click_checkbox(locator, data[field])
-        self.submit_btn()
-
-    def submit_btn(self):
+    def click_submit_btn(self):
         # Submit registration form
         self.click_btn(self._locators['submit_btn'])
 
@@ -44,8 +33,13 @@ class RegistrationPage(BasePage):
         """
         return self.get_message(self._form[field]['error_msg'])
 
-    def check_how_many_error_messages_are_displayed(self):
+    def get_error_messages_count(self):
         # Return numbers of error messages
         errors = self.find_elements(self._locators['error_msgs'])
         return len(errors)
 
+    def fail_registration_message(self):
+        return self.get_message(self._locators['registration_fail_msg'])
+
+    def success_registration_message(self):
+        return self.get_message(self._locators['registration_success_msg'])
