@@ -1,6 +1,6 @@
 from pages.base_page import BasePage
 from config import ITEM_PAGE_URL
-from pages.locators import ITEM_LOCATORS
+from pages.item_page.selectors import ITEM_LOCATORS
 
 
 class ItemPage(BasePage):
@@ -15,7 +15,7 @@ class ItemPage(BasePage):
         self.click_btn(self._locators['add_to_cart_btn'])
         self.click_btn(self._locators['go_to_cart_btn'])
 
-    def add_two_item_to_cart(self):
+    def add_two_items_to_cart(self):
         self.click_btn(self._locators['plus_btn'])
         self.add_item_to_cart()
 
@@ -30,10 +30,10 @@ class ItemPage(BasePage):
         self.click_btn(self._locators['add_to_cart_btn'])
         self.click_btn(self._locators['go_to_cart_btn'])
 
-    def adding_999_items(self):
+    def add_999_items(self):
         self.clear(self._locators['add_few_product_btn'])
         self.fill(self._locators['add_few_product_btn'], '999')
         self.click_btn(self._locators['add_to_cart_btn'])
 
-    def to_cart(self):
+    def click_go_to_cart_button(self):
         self.click_btn(self._locators['go_to_cart_btn'])
