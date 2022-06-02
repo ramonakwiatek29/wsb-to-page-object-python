@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
-from config import REGISTRATION_URL
+from config import REGISTRATION_URL, SENDER_EMAIL
+from helpers import get_confirmation_link
 from pages.registration_page.selectors import REGISTRATION_LOCATORS
 
 
@@ -7,6 +8,7 @@ class RegistrationPage(BasePage):
     _locators = REGISTRATION_LOCATORS
     _url = REGISTRATION_URL
     _form = REGISTRATION_LOCATORS['registration_form']
+    _sender = SENDER_EMAIL
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -24,7 +26,7 @@ class RegistrationPage(BasePage):
         # Submit registration form
         self.click_btn(self._locators['submit_btn'])
 
-    def check_error_message_for_filed(self, field):
+    def get_error_message_for_filed(self, field):
         """
         Return error message related to form filed if present.
         :param field: (str) input field name
@@ -38,8 +40,17 @@ class RegistrationPage(BasePage):
         errors = self.find_elements(self._locators['error_msgs'])
         return len(errors)
 
-    def fail_registration_message(self):
+    def get_fail_registration_message(self):
         return self.get_message(self._locators['registration_fail_msg'])
 
-    def success_registration_message(self):
+    def get_success_registration_message(self):
         return self.get_message(self._locators['registration_success_msg'])
+
+    def confirm_email(self, email, tag):
+        confirmation_link = get_confirmation_link(
+            sender=self._sender,
+            receiver=email,
+            tag=tag,
+            subject="Rejestracja użytkownika"
+        )
+        self.go_to(confirmation_link)
