@@ -4,7 +4,7 @@ from pages.registration_page.messages import REGISTRATION_MESSAGES
 from pages.registration_page.registration_page import RegistrationPage
 
 
-@pytest.mark.usefixtures('unique_email')
+@pytest.mark.usefixtures('set_email_and_tag_attribute')
 class TestRegistrationPage(TestBase):
     _error_msgs = REGISTRATION_MESSAGES['error_msgs']
     _success_msgs = REGISTRATION_MESSAGES['success_msgs']
@@ -17,9 +17,9 @@ class TestRegistrationPage(TestBase):
 
     def test_register_with_empty_form(self):
         self.register.register_with()
-        assert self._error_msgs['email'] == self.register.check_error_message_for_filed('email')
-        assert self._error_msgs['password'] == self.register.check_error_message_for_filed('password')
-        assert self._error_msgs['terms_and_conditions'] == self.register.check_error_message_for_filed('terms_and_conditions')
+        assert self._error_msgs['email'] == self.register.get_error_message_for_filed('email')
+        assert self._error_msgs['password'] == self.register.get_error_message_for_filed('password')
+        assert self._error_msgs['terms_and_conditions'] == self.register.get_error_message_for_filed('terms_and_conditions')
         assert self.register.get_error_messages_count() == 3
 
     def test_register_with_invalid_email(self):
@@ -30,7 +30,7 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=True
         )
-        assert self._error_msgs['email'] == self.register.check_error_message_for_filed('email')
+        assert self._error_msgs['email'] == self.register.get_error_message_for_filed('email')
         assert self.register.get_error_messages_count() == 1
 
     def test_register_with_terms_and_conditions_not_selected(self):
@@ -41,7 +41,7 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=False
         )
-        assert self._error_msgs['terms_and_conditions'] == self.register.check_error_message_for_filed('terms_and_conditions')
+        assert self._error_msgs['terms_and_conditions'] == self.register.get_error_message_for_filed('terms_and_conditions')
         assert self.register.get_error_messages_count() == 1
 
     def test_register_without_password(self):
@@ -52,8 +52,8 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=True
         )
-        assert self._error_msgs['password'] == self.register.check_error_message_for_filed('password')
-        assert self._error_msgs['rpassword'] == self.register.check_error_message_for_filed('rpassword')
+        assert self._error_msgs['password'] == self.register.get_error_message_for_filed('password')
+        assert self._error_msgs['rpassword'] == self.register.get_error_message_for_filed('rpassword')
         assert self.register.get_error_messages_count() == 2
 
     def test_register_with_password_less_then_minimum_length(self):
@@ -64,7 +64,7 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=True
         )
-        assert self._error_msgs['password'] == self.register.check_error_message_for_filed('password')
+        assert self._error_msgs['password'] == self.register.get_error_message_for_filed('password')
         assert self.register.get_error_messages_count() == 1
 
     def test_register_with_different_confirmation_password(self):
@@ -76,7 +76,7 @@ class TestRegistrationPage(TestBase):
             terms_and_conditions=True
         )
         assert self.register.get_error_messages_count() == 1
-        assert self._error_msgs['rpassword'] == self.register.check_error_message_for_filed('rpassword')
+        assert self._error_msgs['rpassword'] == self.register.get_error_message_for_filed('rpassword')
 
     def test_register_with_valid_data(self):
         self.register.register_with(
@@ -86,7 +86,8 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=True
         )
-        assert self._success_msgs['registration_success_msg'] == self.register.success_registration_message()
+        self.register.confirm_email(self.email, self.tag)
+        assert self._success_msgs['registration_success_msg'] == self.register.get_success_registration_message()
 
     def test_register_with_email_already_registered(self):
         self.register.register_with(
@@ -96,4 +97,4 @@ class TestRegistrationPage(TestBase):
             newsletter=True,
             terms_and_conditions=True
         )
-        assert self._error_msgs['registration_fail_msg'] == self.register.fail_registration_message()
+        assert self._error_msgs['registration_fail_msg'] == self.register.get_fail_registration_message()

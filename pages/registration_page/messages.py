@@ -7,5 +7,5 @@ REGISTRATION_MESSAGES = {
             'registration_fail_msg':'Podany email nie może zostać zarejestrowany'
         },
         'success_msgs': {
-            'registration_success_msg': 'Dziękujemy za rejestrację w sklepie. Na podany przez Ciebie adres e-mail została wysłana wiadomość. Postępuj zgodnie z informacjami podanymi w e-mailu.',        }
+            'registration_success_msg': 'Konto zostało poprawnie aktywowane, zapraszamy do zakupów!',}
     }

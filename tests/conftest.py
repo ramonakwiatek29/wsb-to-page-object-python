@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from datetime import datetime
+from helpers import generate_unique_email_and_tag
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
@@ -17,8 +18,7 @@ def browser_driver(request):
 
 
 @pytest.fixture(scope='class')
-def unique_email(request):
-    base_email = 'testmail.*@fakemail.com.pl'
-    unique_tag = f'test-{datetime.today().strftime("%d/%m/%y-%H.%M.%S")}'
-    new_email = base_email.replace('*', unique_tag)
+def set_email_and_tag_attribute(request):
+    new_email, tag = generate_unique_email_and_tag()
     request.cls.email = new_email
+    request.cls.tag = tag
