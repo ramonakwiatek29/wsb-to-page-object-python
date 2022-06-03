@@ -20,12 +20,13 @@ class PaymentsPage(BasePage):
         self.click_btn(self._locators['order_without_login_checkbox_required'])
         self.click_btn(self._locators['order_without_login_order_and_pay'])
 
-    def buy_with_login(self):
+    def buy_with_login(self, email, password):
         self.click_btn(self._locators['make_order_login'])
         self.click_btn(self._locators['make_order_my_account'])
-        #self.fill(self._locators['order_login_email'],'realkaka17@wp.pl')
-        self.fill(self._locators['order_login_password'],'haslo123')
-        self.click_btn(self._locators['make_order_again'])
+        self.fill(self._locators['order_login_email'], email)
+        self.fill(self._locators['order_login_password'], password)
+        self.click_btn(self._locators['login_btn'])
+        self.click_btn(self._locators['finalize_order'])
         self.fill(self._locators['order_login_phone'],'333-333-333')
         self.fill(self._locators['order_login_name'],'Anna')
         self.fill(self._locators['order_login_surname'],'Nowak')
@@ -33,7 +34,7 @@ class PaymentsPage(BasePage):
         self.fill(self._locators['order_login_number_of_house'],'13')
         self.fill(self._locators['order_login_city'],'Lublin')
         self.fill(self._locators['order_login_codepost'],'33-033')
-        self.click_checkbox(self._locators['order_login_checkbox_required'])
+        self.click_btn(self._locators['order_login_checkbox_required'])
         self.click_btn(self._locators['order_login_order_and_pay'])
 
     def buy_without_login_firm(self):

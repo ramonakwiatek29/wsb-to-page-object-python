@@ -9,9 +9,9 @@ LOGIN_URL = 'https://www.sklepdemo.pl/login'
 SENDER_EMAIL = 'test@sklepdemo.pl'
 
 # Testmail.app API keys
-APIKEY = '00c88dfc-4a33-4666-9fb3-742451ec2094'
-NAMESPACE = 'yidjg'
+APIKEY = 'b20df7eb-4f42-4971-a5d2-ba31928e3c63'
+NAMESPACE = 'hpbbg'
 # email address assign in testmail.app ({namespace}.*@inbox.testmail.app
-RECEIVER_EMAIL = 'yidjg.*@inbox.testmail.app'
+RECEIVER_EMAIL = 'hpbbg.*@inbox.testmail.app'
 
 

@@ -20,7 +20,7 @@ class TestPaymentsPage(TestBase):
 
     def test_buy_with_login(self):
         self.item.add_item_to_cart()
-        self.payments.buy_with_login()
+        self.payments.buy_with_login(self.login_email, self.login_password)
         assert self.payments.successful_buy() == 'Twoje zamówienie zostało złożone!'
 
     def test_buy_without_login_firm(self):
