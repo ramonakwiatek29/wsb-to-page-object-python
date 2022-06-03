@@ -5,119 +5,71 @@ PAYMENTS_LOCATORS = {
         'by': By.CSS_SELECTOR,
         'value': 'button.confirm-button:nth-child(2)'
     },
-    'order_without_login_by_email': {
+    'order_and_pay_enter_email': {
         'by': By.CSS_SELECTOR,
         'value': '#b-email'
     },
-    'order_without_login_by_phone': {
+    'order_and_pay_enter_phone': {
         'by': By.CSS_SELECTOR,
         'value': '#b-phone'
     },
-    'order_without_login_by_name': {
+    'order_and_pay_enter_name': {
         'by': By.CSS_SELECTOR,
         'value': '#b-name'
     },
-    'order_without_login_by_surname': {
+    'order_and_pay_enter_surname': {
         'by': By.CSS_SELECTOR,
         'value': '#b-subname'
     },
-    'order_without_login_by_street': {
+    'order_and_pay_enter_street': {
         'by': By.CSS_SELECTOR,
         'value': '#b-street'
     },
-    'order_without_login_by_number_of_house': {
+    'order_and_pay_enter_number_of_house': {
         'by': By.CSS_SELECTOR,
         'value': '#b-house'
     },
-    'order_without_login_by_city': {
+    'order_and_pay_enter_city': {
         'by': By.CSS_SELECTOR,
         'value': '#b-city'
     },
-    'order_without_login_by_codepost': {
+    'order_and_pay_enter_codepost': {
         'by': By.CSS_SELECTOR,
         'value': '#b-codepost'
     },
-    'order_without_login_checkbox_required': {
+    'order_and_pay_checkbox_required': {
         'by': By.XPATH,
         'value': '//*[@id="content"]/section/form[1]/div/div[1]/fieldset[4]/div[2]/label'
     },
-    'order_without_login_order_and_pay': {
+    'order_and_pay_the_last_step_order_and_pay': {
         'by': By.CSS_SELECTOR,
         'value': 'button.confirm-button:nth-child(2)'
     },
-    'make_order_by_firm': {
-        'by': By.CSS_SELECTOR,
-        'value': 'button.confirm-button:nth-child(2)'
-    },
-    'order_without_login_by_firm_by_email': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-email'
-    },
-    'order_without_login_by_firm_by_phone': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-phone'
-    },
-    'order_without_login_by_firm_choice': {
+    'order_and_pay_choice_by_firm': {
         'by': By.CSS_SELECTOR,
         'value': 'div.check-simple:nth-child(3) > label:nth-child(2)'
     },
-    'order_without_login_by_firm_checkbox_invoice': {
+    'order_and_pay_by_firm_checkbox_invoice': {
         'by': By.CSS_SELECTOR,
         'value': '.checkbox-inline > label:nth-child(2)'
     },
-    'order_without_login_by_firm_firm_name': {
+    'order_and_pay_by_firm_enter_firm_name': {
         'by': By.CSS_SELECTOR,
         'value': '#b-company'
     },
-    'order_without_login_by_firm_nip': {
+    'order_and_pay_enter_firm_nip': {
         'by': By.CSS_SELECTOR,
         'value': '#b-nip'
     },
-    'order_without_login_by_firm_name': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-name'
-    },
-    'order_without_login_by_firm_surname': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-subname'
-    },
-    'order_without_login_by_firm_street': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-street'
-    },
-    'order_without_login_by_firm_number_of_house': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-house'
-    },
-    'order_without_login_by_firm_city': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-city'
-    },
-    'order_without_login_by_firm_codepost': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-codepost'
-    },
-    'order_without_login_by_firm_checkbox_required': {
-        'by': By.XPATH,
-        'value': '//*[@id="content"]/section/form[1]/div/div[1]/fieldset[4]/div[2]/label'
-    },
-    'order_without_login_by_firm_order_and_pay': {
-        'by': By.CSS_SELECTOR,
-        'value': 'button.confirm-button:nth-child(2)'
-    },
-    'make_order_login': {
-        'by': By.CSS_SELECTOR,
-        'value': 'button.confirm-button:nth-child(2)'
-    },
-    'make_order_my_account': {
+    'make_order_choice_my_account': {
         'by': By.CSS_SELECTOR,
         'value': '.checkout-tab > ul:nth-child(1) > li:nth-child(2)'
     },
-    'order_login_email': {
+    'order_and_pay_enter_login_email': {
         'by': By.ID,
         'value': 'login-login'
     },
-    'order_login_password': {
+    'order_and_pay_enter_login_password': {
         'by': By.ID,
         'value': 'login-password'
     },
@@ -126,42 +78,6 @@ PAYMENTS_LOCATORS = {
         'value': 'button.confirm-button:nth-child(4)'
     },
     'finalize_order': {
-        'by': By.CSS_SELECTOR,
-        'value': 'button.confirm-button:nth-child(2)'
-    },
-    'order_login_phone': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-phone'
-    },
-    'order_login_name': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-name'
-    },
-    'order_login_surname': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-subname'
-    },
-    'order_login_street': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-street'
-    },
-    'order_login_number_of_house': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-house'
-    },
-    'order_login_city': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-city'
-    },
-    'order_login_codepost': {
-        'by': By.CSS_SELECTOR,
-        'value': '#b-codepost'
-    },
-    'order_login_checkbox_required': {
-        'by': By.XPATH,
-        'value': '/html/body/div[2]/div[2]/section/div[2]/section/form/div/div[1]/fieldset[3]/div/label'
-    },
-    'order_login_order_and_pay': {
         'by': By.CSS_SELECTOR,
         'value': 'button.confirm-button:nth-child(2)'
     },
