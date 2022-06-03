@@ -1,6 +1,6 @@
 import pytest
 
 
-@pytest.mark.usefixtures('browser_driver')
+@pytest.mark.usefixtures('setup_test_base')
 class TestBase:
     pass
