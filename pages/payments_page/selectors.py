@@ -111,17 +111,21 @@ PAYMENTS_LOCATORS = {
     },
     'make_order_my_account': {
         'by': By.CSS_SELECTOR,
-        'value': '#content > section > nav > ul > li.active'
+        'value': '.checkout-tab > ul:nth-child(1) > li:nth-child(2)'
     },
     'order_login_email': {
-        'by': By.XPATH,
-        'value': '//*[@id="login-login"]'
+        'by': By.ID,
+        'value': 'login-login'
     },
     'order_login_password': {
-        'by': By.CSS_SELECTOR,
-        'value': '#login-login'
+        'by': By.ID,
+        'value': 'login-password'
     },
-    'make_order_again': {
+    'login_btn': {
+        'by': By.CSS_SELECTOR,
+        'value': 'button.confirm-button:nth-child(4)'
+    },
+    'finalize_order': {
         'by': By.CSS_SELECTOR,
         'value': 'button.confirm-button:nth-child(2)'
     },
@@ -155,7 +159,7 @@ PAYMENTS_LOCATORS = {
     },
     'order_login_checkbox_required': {
         'by': By.XPATH,
-        'value': '//*[@id="content"]/section/form[1]/div/div[1]/fieldset[4]/div[2]/label'
+        'value': '/html/body/div[2]/div[2]/section/div[2]/section/form/div/div[1]/fieldset[3]/div/label'
     },
     'order_login_order_and_pay': {
         'by': By.CSS_SELECTOR,
