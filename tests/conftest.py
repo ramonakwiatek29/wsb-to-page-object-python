@@ -8,14 +8,19 @@ from webdriver_manager.firefox import GeckoDriverManager
 from pages.registration_page.registration_page import RegistrationPage
 
 
-@pytest.fixture(scope='class')
-def browser_driver(request, create_registered_user):
+@pytest.fixture(scope='session')
+def driver_instance():
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+    driver.maximize_window()
+    yield driver
+    driver.close()
+
+
+@pytest.fixture(scope='class')
+def setup_test_base(request, create_registered_user, driver_instance):
+    driver = driver_instance
     request.cls.login_email, request.cls.login_password = create_registered_user
     request.cls.driver = driver
-    driver.maximize_window()
-    yield
-    driver.close()
 
 
 @pytest.fixture(scope='class')
